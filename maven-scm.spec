@@ -36,7 +36,7 @@
 
 Name:           maven-scm
 Version:        1.0
-Release:        %mkrel 0.1.b3.2jpp.1.1
+Release:        %mkrel 0.1.b3.2.1.1
 Epoch:          0
 Summary:        Common API for doing SCM operations
 License:        Apache Software License
