@@ -36,7 +36,7 @@
 
 Name:           maven-scm
 Version:        1.0
-Release:        %mkrel 0.1.b3.2.1.1
+Release:        %mkrel 0.1.b3.2.1.2
 Epoch:          0
 Summary:        Common API for doing SCM operations
 License:        Apache Software License
@@ -83,8 +83,6 @@ Requires:       velocity >= 1.4
 
 %if %{gcj_support}
 BuildRequires:          java-gcj-compat-devel
-Requires(post):         java-gcj-compat
-Requires(postun):       java-gcj-compat
 %endif
 
 Requires(post):    jpackage-utils >= 0:1.7.2
@@ -101,8 +99,6 @@ Requires:       maven-scm = %{epoch}:%{version}-%{release}
 
 %if %{gcj_support}
 BuildRequires:          java-gcj-compat-devel
-Requires(post):         java-gcj-compat
-Requires(postun):       java-gcj-compat
 %endif
 
 %description test
