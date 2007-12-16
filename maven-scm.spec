@@ -36,7 +36,7 @@
 
 Name:           maven-scm
 Version:        1.0
-Release:        %mkrel 0.1.b3.2.1.2
+Release:        %mkrel 0.1.b3.2.1.3
 Epoch:          0
 Summary:        Common API for doing SCM operations
 License:        Apache Software License
@@ -57,7 +57,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 %if ! %{gcj_support}
 BuildArch:      noarch
 %endif
-BuildRequires:  jpackage-utils >= 0:1.6
+BuildRequires:  java-rpmbuild >= 0:1.6
 BuildRequires:  maven2 >= 2.0.4-6
 BuildRequires:  maven2-plugin-compiler
 BuildRequires:  maven2-plugin-install
