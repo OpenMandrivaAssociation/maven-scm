@@ -52,7 +52,6 @@ Source1:        %{name}-jpp-depmap.xml
 Source2:        %{name}-mapdeps.xsl
 Source3:        %{name}-add-plexusutils-dep.xml
 
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %if ! %{gcj_support}
 BuildArch:      noarch
