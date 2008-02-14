@@ -41,6 +41,7 @@ Epoch:          0
 Summary:        Common API for doing SCM operations
 License:        Apache Software License
 Group:          Development/Java
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:            http://maven.apache.org/scm
 
 Source0:        %{name}-%{version}-beta-3.tar.gz
