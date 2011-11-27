@@ -30,7 +30,7 @@
 
 Name:           maven-scm
 Version:        1.5
-Release:        1
+Release:        3
 Summary:        Common API for doing SCM operations
 License:        ASL 2.0
 Group:          Development/Java
