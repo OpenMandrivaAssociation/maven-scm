@@ -1,0 +1,15 @@
+--- A/maven-scm-providers/maven-scm-provider-vss/pom.xml	2010-08-05 15:27:52.977078000 +0200
++++ B/maven-scm-providers/maven-scm-provider-vss/pom.xml	2010-09-08 15:04:08.468743003 +0200
+@@ -54,6 +54,12 @@
+         <version>1.0-alpha-21</version><!-- Workaround for SCM-518 -->
+         <executions>
+           <execution>
++            <configuration>
++              <models>
++                <model>src/main/mdo/vss-settings.mdo</model>
++              </models>
++              <version>1.0.0</version>
++            </configuration>
+             <goals>
+               <goal>java</goal>
+               <goal>xpp3-reader</goal>
