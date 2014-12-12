@@ -1,11 +1,11 @@
-From 218c099d3ec2ca985df23c6ab5eba8cb04097e88 Mon Sep 17 00:00:00 2001
+From 8ba1b5b97c0933c7d9929485188673efd8bc8f9b Mon Sep 17 00:00:00 2001
 From: Mat Booth <mbooth@apache.org>
 Date: Sun, 25 Aug 2013 14:08:40 +0100
 Subject: [PATCH] port maven-scm to latest version of plexus default container
 
 ---
  .../main/java/org/apache/maven/scm/client/cli/MavenScmCli.java | 10 ++++------
- maven-scm-plugin/pom.xml                                       |  8 ++++----
+ maven-scm-plugin/pom.xml                                       |  6 +++---
  .../maven/scm/provider/accurev/cli/AccuRevCommandLineTest.java |  7 +++----
  .../maven/scm/provider/accurev/cli/AccuRevJUnitUtil.java       |  6 +++---
  .../maven/scm/provider/accurev/cli/WorkSpaceConsumerTest.java  |  6 +++---
@@ -20,7 +20,7 @@ Subject: [PATCH] port maven-scm to latest version of plexus default container
  .../provider/vss/commands/status/VssStatusConsumerTest.java    |  3 ++-
  .../svn/svnexe/command/changelog/SvnChangeLogConsumerTest.java |  3 ++-
  pom.xml                                                        |  2 +-
- 16 files changed, 47 insertions(+), 57 deletions(-)
+ 16 files changed, 46 insertions(+), 56 deletions(-)
 
 diff --git a/maven-scm-client/src/main/java/org/apache/maven/scm/client/cli/MavenScmCli.java b/maven-scm-client/src/main/java/org/apache/maven/scm/client/cli/MavenScmCli.java
 index c1a08bf..b99d798 100644
@@ -65,7 +65,7 @@ index c1a08bf..b99d798 100644
          catch ( Exception ex )
          {
 diff --git a/maven-scm-plugin/pom.xml b/maven-scm-plugin/pom.xml
-index 2e337f8..79b22ea 100644
+index 9e83331..4527ce5 100644
 --- a/maven-scm-plugin/pom.xml
 +++ b/maven-scm-plugin/pom.xml
 @@ -41,14 +41,14 @@
@@ -73,9 +73,8 @@ index 2e337f8..79b22ea 100644
  
    <properties>
 -    <mavenVersion>2.0.6</mavenVersion>
--    <mavenPluginVersion>2.9</mavenPluginVersion>
 +    <mavenVersion>3.0.5</mavenVersion>
-+    <mavenPluginVersion>3.2</mavenPluginVersion>
+     <mavenPluginVersion>3.2</mavenPluginVersion>
    </properties>
    
    <dependencies>
@@ -86,7 +85,7 @@ index 2e337f8..79b22ea 100644
        <version>${mavenVersion}</version>
      </dependency>
      <dependency>
-@@ -110,7 +110,7 @@
+@@ -117,7 +117,7 @@
      <dependency>
        <groupId>org.apache.maven.plugin-testing</groupId>
        <artifactId>maven-plugin-testing-harness</artifactId>
@@ -430,10 +429,10 @@ index 7ed4403..6c22cde 100644
      }
  
 diff --git a/pom.xml b/pom.xml
-index 4edd46e..958faea 100644
+index dd956d8..2028b1d 100644
 --- a/pom.xml
 +++ b/pom.xml
-@@ -257,7 +257,7 @@
+@@ -255,7 +255,7 @@
        <dependency>
          <groupId>org.codehaus.plexus</groupId>
          <artifactId>plexus-container-default</artifactId>
@@ -443,5 +442,5 @@ index 4edd46e..958faea 100644
        <dependency>
          <groupId>org.codehaus.plexus</groupId>
 -- 
-1.8.3.1
+1.8.4.2
 

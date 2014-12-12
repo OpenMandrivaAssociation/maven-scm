@@ -30,11 +30,10 @@
 #
 
 Name:           maven-scm
-Version:        1.8.1
-Release:        2.1%{?dist}
+Version:        1.9.2
+Release:        2%{?dist}
 Summary:        Common API for doing SCM operations
 License:        ASL 2.0
-
 URL:            http://maven.apache.org/scm
 
 Source0:        http://repo1.maven.org/maven2/org/apache/maven/scm/%{name}/%{version}/%{name}-%{version}-source-release.zip
@@ -51,23 +50,22 @@ BuildRequires:  jpackage-utils >= 0:1.6
 BuildRequires:  maven-local
 BuildRequires:  modello
 BuildRequires:  plexus-utils >= 1.5.6
+BuildRequires:  maven-invoker-plugin
 BuildRequires:  maven-plugin-testing-harness
-BuildRequires:  bzr
 BuildRequires:  subversion
 BuildRequires:  plexus-containers-component-metadata
 BuildRequires:  plexus-containers-container-default
 BuildRequires:  plexus-classworlds
+BuildRequires:  jgit
 
-Requires:       modello
-Requires:       velocity >= 1.4
-
+# temporary compat
+Provides:	mvn(org.apache.maven.scm:maven-scm-providers-standard)
 %description
 Maven SCM supports Maven plugins (e.g. maven-release-plugin) and other
 tools (e.g. Continuum) in providing them a common API for doing SCM operations.
 
 %package test
 Summary:        Tests for %{name}
-
 Requires:       maven-scm = %{version}-%{release}
 
 %description test
@@ -75,7 +73,6 @@ Tests for %{name}.
 
 %package javadoc
 Summary:        Javadoc for %{name}
-
 
 %description javadoc
 Javadoc for %{name}.
@@ -103,6 +100,9 @@ sed -i s/cvsjava.CvsJava/cvsexe.CvsExe/ maven-scm-client/src/main/resources/META
 %pom_remove_dep org.mockito: maven-scm-providers/maven-scm-provider-jazz
 %pom_remove_dep org.mockito: maven-scm-providers/maven-scm-provider-accurev
 
+# Accepted upstream: http://jira.codehaus.org/browse/SCM-786
+%pom_add_dep junit:junit:4.11 maven-scm-test
+
 # Put TCK tests into a separate sub-package
 %mvn_package :%{name}-provider-cvstest test
 %mvn_package :%{name}-provider-gittest test
@@ -129,6 +129,27 @@ sed -i s/cvsjava.CvsJava/cvsexe.CvsExe/ maven-scm-client/src/main/resources/META
 %doc LICENSE NOTICE
 
 %changelog
+* Fri Nov 21 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.9.2-2
+- Add missing dependency on JUnit (SCM-786)
+
+* Wed Sep 17 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.9.2-1
+- Update to upstream version 1.9.2
+
+* Mon Jul 28 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.9.1-1
+- Update to upstream version 1.9.1
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.9-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Thu Mar 13 2014 Michael Simacek <msimacek@redhat.com> - 1.9-3
+- Drop manual requires
+
+* Tue Mar 04 2014 Stanislav Ochotnicky <sochotnicky@redhat.com> - 1.9-2
+- Use Requires: java-headless rebuild (#1067528)
+
+* Wed Jan  8 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.9-1
+- Update to upstream version 1.9
+
 * Tue Aug 27 2013 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.8.1-2
 - Remove BR: mockito
 
@@ -303,3 +324,4 @@ sed -i s/cvsjava.CvsJava/cvsexe.CvsExe/ maven-scm-client/src/main/resources/META
 
 * Tue Sep 18 2006 Deepak Bhole <dbhole@redhat.com> - 0:1.0-0.b3.1jpp
 - Initial build
+

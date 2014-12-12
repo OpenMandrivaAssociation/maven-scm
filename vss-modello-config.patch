@@ -10,4 +10,4 @@
 +          </models>
          </configuration>
        </plugin>
-     </plugins>
+       <plugin>
