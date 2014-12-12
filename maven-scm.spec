@@ -58,8 +58,6 @@ BuildRequires:  plexus-containers-container-default
 BuildRequires:  plexus-classworlds
 BuildRequires:  jgit
 
-# temporary compat
-Provides:	mvn(org.apache.maven.scm:maven-scm-providers-standard)
 %description
 Maven SCM supports Maven plugins (e.g. maven-release-plugin) and other
 tools (e.g. Continuum) in providing them a common API for doing SCM operations.
