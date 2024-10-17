@@ -34,7 +34,7 @@ Version:        1.9.2
 Release:        2%{?dist}
 Summary:        Common API for doing SCM operations
 License:        ASL 2.0
-URL:            http://maven.apache.org/scm
+URL:            https://maven.apache.org/scm
 
 Source0:        http://repo1.maven.org/maven2/org/apache/maven/scm/%{name}/%{version}/%{name}-%{version}-source-release.zip
 
